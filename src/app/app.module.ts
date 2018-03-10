@@ -11,6 +11,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { BusTrackerComponent } from '../pages/bus-tracker/bus-tracker.component';
 import { BusTrackerService } from '../pages/bus-tracker/bus-tracker.service';
+import { InfoLinesComponent } from '../pages/info-lines/info-lines.component';
+import { InfoLineService } from '../pages/info-lines/info-line.service';
+
+
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -19,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage,
     ListPage,
-    BusTrackerComponent
+    BusTrackerComponent,
+    InfoLinesComponent
   ],
   imports: [
     BrowserModule,
@@ -31,13 +36,15 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage,
     ListPage,
-    BusTrackerComponent
+    BusTrackerComponent,
+    InfoLinesComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BusTrackerService
+    BusTrackerService,
+    InfoLineService
   ]
 })
 export class AppModule {}

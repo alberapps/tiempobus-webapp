@@ -7,9 +7,9 @@ import { catchError, retry, tap, map } from 'rxjs/operators';
 
 
 @Injectable()
-export class BusTrackerService {
+export class InfoLineService {
 
-  trackerUrl = 'assets/tiempos_mock.xml';
+  trackerUrl = 'assets/lineas_mock.xml';
 
   //trackerUrl = 'http://api.alberapps.com:8080/TiempoBusBackend/dinamica_pasoparada.jsp?parada=2503';
 
@@ -19,15 +19,6 @@ export class BusTrackerService {
 
     console.info('getServerData Init');
 
-    // Add safe, URL encoded search parameter if there is a search term
-    /*const options = stopNumber ?
-     {
-       params: new HttpParams().set('parada', stopNumber),
-       responseType: 'text'
-     } : {
-       responseType: 'text'
-     };*/
-
     const options = { params: new HttpParams().set('parada', stopNumber), responseType: 'text' as 'text' }
 
     // The Observable returned by get() is of type Observable<string>
@@ -35,47 +26,11 @@ export class BusTrackerService {
     // There's no need to pass a <string> type parameter to get().
     return this.http.get(this.trackerUrl, options)
       .pipe(
-        /*tap( // Log the result or error
-          //data => this.parseXmlData(data),
-          error => this.handleError(error)
-        ),*/
-        retry(3),
-        catchError(this.handleError),
-
-      /*map(
-          data => { return this.parseXmlData(data)},
-      )*/
-
-    );
-  }
-
-
-
-
-  //private mapData(result: Object){
-
-  //var busInfo: BusInfo;
-
-  //var soapBody = result.length;
-
-  //console.log('soapbody: ', soapBody );
-
-  //}
-
-
-  /*getConfig(){
-    return this.http.get<BusInfo>(this.configUrl)
-    .pipe(
         retry(3),
         catchError(this.handleError)
-    );
+      );
   }
 
-  getConfigResponse(): Observable<HttpResponse<BusInfo>> {
-    return this.http.get<BusInfo>(
-      this.configUrl, { observe: 'response' }
-    );
-  }*/
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

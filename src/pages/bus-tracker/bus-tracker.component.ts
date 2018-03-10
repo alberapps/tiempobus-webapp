@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { BusTrackerService } from './bus-tracker.service';
 import { xmlParser } from 'xml2js';
 import { IBusInfo, BusInfo } from './bus-info';
-import { ToastController, LoadingController, Loading } from 'ionic-angular';
+import { ToastController, LoadingController, Loading, NavController, NavParams } from 'ionic-angular';
 import { Utils } from '../../utils/utils';
+import { InfoLinesComponent } from '../info-lines/info-lines.component';
 
 export class FormInput {
 
@@ -11,7 +12,7 @@ export class FormInput {
 
   constructor(
     public parada: string
-  ){ }
+  ) { }
 
 }
 
@@ -38,11 +39,17 @@ export class BusTrackerComponent implements OnInit {
   loader: Loading;
 
   constructor(private trackerService: BusTrackerService, public toastCtrl: ToastController,
-              public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController, public navCtrl: NavController,
+    public navParams: NavParams
+  ) {
 
-              }
+  }
 
   ngOnInit() {
+
+    if (this.navParams.get('stopNumber')) {
+      this.stopNumber = this.navParams.get('stopNumber');
+    }
 
     this.model.parada = this.stopNumber;
     this.model.hourRef = new Date();
@@ -51,11 +58,11 @@ export class BusTrackerComponent implements OnInit {
 
   }
 
-  onSubmit(){
+  onSubmit() {
 
     console.log('onSubmit');
 
-    if(this.model.parada != '' && this.model.parada.length == 4){
+    if (this.model.parada != '' && this.model.parada.length == 4) {
       this.stopNumber = this.model.parada;
       this.loadServerData(this.model.parada);
     } else {
@@ -68,7 +75,7 @@ export class BusTrackerComponent implements OnInit {
 
   loadTimes = (busInfoList: Array<IBusInfo>): void => {
 
-    if(busInfoList != null){
+    if (busInfoList != null) {
       this.timeItems = busInfoList;
     } else {
       this.timeItems = [];
@@ -81,7 +88,7 @@ export class BusTrackerComponent implements OnInit {
 
   }
 
-  loadServerData(stopNumber: string){
+  loadServerData(stopNumber: string) {
 
     this.loader = Utils.presentLoading(this.loadingCtrl);
 
@@ -90,20 +97,20 @@ export class BusTrackerComponent implements OnInit {
     this.serviceError = false;
 
     this.trackerService.getServerData(stopNumber)
-    .subscribe(results => {
+      .subscribe(results => {
         this.parseXmlData(results);
         //console.log('test1: ', this.contents );
-    },
-            error => {
+      },
+        error => {
 
-              console.error('loadServerData Error');
-              this.serviceError = true;
+          console.error('loadServerData Error');
+          this.serviceError = true;
 
-              this.error = error;
-              this.loadTimes(null);
+          this.error = error;
+          this.loadTimes(null);
 
-            }
-    );
+        }
+      );
 
 
 
@@ -119,10 +126,16 @@ export class BusTrackerComponent implements OnInit {
 
     var callback = this.loadTimes;
 
-    return parser(data, function(err, result){
-        BusInfo.parseResult(err, result, callback);
+    return parser(data, function(err, result) {
+      BusInfo.parseResult(err, result, callback);
     });
 
+  }
+
+  goToInfoLines() {
+    //push another page onto the history stack
+    //causing the nav controller to animate the new page in
+    this.navCtrl.push(InfoLinesComponent);
   }
 
 

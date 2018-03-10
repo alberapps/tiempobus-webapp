@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <GetRutasSublineaResponse xmlns="http://tempuri.org/">
+      <GetRutasSublineaResult>
+        <InfoRuta>
+          <nombre>Universidad de Alicante - San Vicente del Raspeig</nombre>
+          <idLinea>51</idLinea>
+          <secciones>
+            <InfoSeccion>
+              <seccion>1</seccion>
+              <longitud>1</longitud>
+              <nodos>
+                <InfoNodoSeccion>
+                  <nodo>4450</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ESTACIÓN CENTRAL DE AUTOBUSES</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.337176879,-0.491890881</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>3132</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ÓSCAR ESPLÁ 10</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.340022757,-0.493508699</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2965</nodo>
+                  <tipo>1</tipo>
+                  <nombre>REYES CATÓLICOS 31</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.342163369,-0.490803482</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2856</nodo>
+                  <tipo>1</tipo>
+                  <nombre>FEDERICO SOTO 20</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.345133987,-0.4898313440000001</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2503</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALFONSO EL SABIO 37</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.346452077,-0.489110753</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2902</nodo>
+                  <tipo>1</tipo>
+                  <nombre>SAN VICENTE 20</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.34933203,-0.484754827</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2903</nodo>
+                  <tipo>1</tipo>
+                  <nombre>PLAZA DE ESPAÑA - PANTEON DE QUIJANO I</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.351340095,-0.484696724</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2904</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALCOY 2 - PLAZA SAN JUAN DE DIOS</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.355452942,-0.487826908</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2905</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALCOY 52</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.357642588,-0.489513398</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2906</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 10</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.360325763,-0.491526241</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2907</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 46</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.362697397,-0.493298218</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2908</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 74</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.364171961,-0.494414611</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2909</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 102</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.366383156,-0.4958489689999999</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2910</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA - JARALES</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.368534159,-0.496575902</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2911</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA FTE. 199</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.372145027,-0.4977332430000001</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2912</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 208</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.374224236,-0.498474202</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2913</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 220</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.377346444,-0.49953409</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2914</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALICANTE - SANTA ISABEL I</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.381488695,-0.503638161</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2915</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALICANTE 135 - CENTRO COMERCIAL</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.384384876,-0.507201684</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2916</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALICANTE 87 - UNIVERSIDAD</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.387095775,-0.510531443</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>3403</nodo>
+                  <tipo>1</tipo>
+                  <nombre>PERU - ALICANTE</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.390918666,-0.514464414</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>3419</nodo>
+                  <tipo>1</tipo>
+                  <nombre>VILLAFRANQUEZA - LO TORRENT</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.393842974,-0.514272567</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2970</nodo>
+                  <tipo>1</tipo>
+                  <nombre>CIUDAD JARDÍN 3</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.392586441,-0.517051906</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2918</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALICANTE 25</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.393722748,-0.518799027</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2919</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ANCHA DE CASTELAR 20</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.395735993,-0.52111157</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2920</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ANCHA DE CASTELAR 68</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.397561182,-0.522629194</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2921</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ANCHA DE CASTELAR 130</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.399860362,-0.5244055010000001</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2922</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ANCHA DE CASTELAR 178</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.401767273,-0.525954851</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2923</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ANCHA DE CASTELAR - IFP CANASTELL</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.403325251,-0.527195571</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2949</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ANCHA DE CASTELAR 208</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.405203736,-0.5282536490000001</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2924</nodo>
+                  <tipo>1</tipo>
+                  <nombre>LILLO JUAN 137 - HOSPITAL SAN VICENTE</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.40384828,-0.5297770040000001</coordenadas>
+                </InfoNodoSeccion>
+              </nodos>
+            </InfoSeccion>
+          </secciones>
+        </InfoRuta>
+        <InfoRuta>
+          <nombre>Alicante (E. Autobuses)</nombre>
+          <idLinea>52</idLinea>
+          <secciones>
+            <InfoSeccion>
+              <seccion>1</seccion>
+              <longitud>1</longitud>
+              <nodos>
+                <InfoNodoSeccion>
+                  <nodo>2924</nodo>
+                  <tipo>1</tipo>
+                  <nombre>LILLO JUAN 137 - HOSPITAL SAN VICENTE</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.40384828,-0.5297770040000001</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2948</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ANCHA DE CASTELAR - IFP V</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.403291893,-0.5273226640000001</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2926</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ANCHA DE CASTELAR 155</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.401533413,-0.525974284</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2927</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ANCHA DE CASTELAR 103</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.399444247,-00.524328114</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2928</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ANCHA DE CASTELAR 53</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.397132431,-0.522380509</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2929</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ANCHA DE CASTELAR 9</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.395747661,-0.521237113</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2930</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALICANTE 48</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.393709346,-0.519017015</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2971</nodo>
+                  <tipo>1</tipo>
+                  <nombre>CIUDAD JARDIN 2</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.392580617,-0.516777335</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2972</nodo>
+                  <tipo>1</tipo>
+                  <nombre>VILLAFRANQUEZA 58</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.393693795,-0.514460865</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>3995</nodo>
+                  <tipo>1</tipo>
+                  <nombre>PERÚ - ALICANTE II</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.391004316,-0.514678999</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2932</nodo>
+                  <tipo>1</tipo>
+                  <nombre>UNIVERSIDAD DE ALICANTE</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.386057662,-0.510017579</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2933</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALICANTE - CENTRO COMERCIAL II</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.384335969,-0.507443761</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2934</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALICANTE - SANTA ISABEL II</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.38127236,-0.503634158</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2935</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 253</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.377787417,-0.4999309639999999</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2936</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 209</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.373429707,-0.498398579</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2937</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA - SAN RAFAEL II</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.370780085,-0.497528508</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2938</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 163</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.368982922,-0.496915218</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2939</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 121</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.365841954,-0.495821861</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2940</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 73</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.363745849,-0.494291988</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2941</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 53</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.362491535,-0.493362546</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2942</nodo>
+                  <tipo>1</tipo>
+                  <nombre>NOVELDA 25</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.360787951,-0.4920710119999999</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2943</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALCOY 125</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.356970921,-00.489284873</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2944</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALCOY 63</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.354735272,-00.487554226</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2945</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALCOY 1 - PLAZA DE ESPAÑA</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.352178581,-0.485560182</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2946</nodo>
+                  <tipo>1</tipo>
+                  <nombre>CALDERON DE LA BARCA 7</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.349033184,-0.485943682</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2947</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ALFONSO EL SABIO 44</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.346531215,-0.4894398180000001</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>3939</nodo>
+                  <tipo>1</tipo>
+                  <nombre>FEDERICO SOTO 1</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.343925955,-0.489381125</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>2964</nodo>
+                  <tipo>1</tipo>
+                  <nombre>OSCAR ESPLA 33</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.342115635,-0.494466158</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>3676</nodo>
+                  <tipo>1</tipo>
+                  <nombre>OSCAR ESPLÁ 3</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.339307104,-0.493750752</coordenadas>
+                </InfoNodoSeccion>
+                <InfoNodoSeccion>
+                  <nodo>4450</nodo>
+                  <tipo>1</tipo>
+                  <nombre>ESTACIÓN CENTRAL DE AUTOBUSES</nombre>
+                  <distancia>0</distancia>
+                  <visible>false</visible>
+                  <coordenadas>38.337176879,-0.491890881</coordenadas>
+                </InfoNodoSeccion>
+              </nodos>
+            </InfoSeccion>
+          </secciones>
+        </InfoRuta>
+      </GetRutasSublineaResult>
+    </GetRutasSublineaResponse>
+  </soap:Body>
+</soap:Envelope>

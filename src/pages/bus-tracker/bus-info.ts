@@ -20,36 +20,36 @@ export class BusInfo implements IBusInfo {
 
     if (time != '0') {
 
-		    var dateTime = new Date();
-		    var minutos1Int = parseInt(time);
+      var dateTime = new Date();
+      var minutos1Int = parseInt(time);
 
-		    dateTime.setMinutes(new Date().getMinutes() + minutos1Int);
-		    return this.formatHour(dateTime.getHours(),dateTime.getMinutes());
+      dateTime.setMinutes(new Date().getMinutes() + minutos1Int);
+      return this.formatHour(dateTime.getHours(), dateTime.getMinutes());
 
-  	} else {
-  		  return 0
-  	}
+    } else {
+      return 0
+    }
 
 
   }
 
   private formatHour(hora, minutos) {
-	   return ("0" + hora).slice(-2) + ":" + ("0" + minutos).slice(-2);
+    return ("0" + hora).slice(-2) + ":" + ("0" + minutos).slice(-2);
   }
 
 
-  static parseResult(err, result, callback: (busInfoList: Array<IBusInfo>) => any){
-    if(err != null){
+  static parseResult(err, result, callback: (busInfoList: Array<IBusInfo>) => any) {
+    if (err != null) {
       console.log('ERR', err);
-      callback(null);      
+      callback(null);
     }
     console.log('End Parse');
     console.log('OK:', result);
 
     var pasoParadaList = result['soap:Envelope']['soap:Body'][0]
-      ['GetPasoParadaResponse'][0]['GetPasoParadaResult'][0]['PasoParada'];
+    ['GetPasoParadaResponse'][0]['GetPasoParadaResult'][0]['PasoParada'];
 
-    console.log('pasoParadaList: ', pasoParadaList );
+    console.log('pasoParadaList: ', pasoParadaList);
 
     let busInfo: IBusInfo;
     let busInfoList: Array<IBusInfo> = new Array();
@@ -64,7 +64,7 @@ export class BusInfo implements IBusInfo {
 
       busInfoList.push(busInfo);
 
-      console.log('busInfo: ', busInfoList );
+      console.log('busInfo: ', busInfoList);
 
     });
 
