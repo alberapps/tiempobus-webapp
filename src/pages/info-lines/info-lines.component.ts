@@ -14,7 +14,7 @@ declare const require;
   selector: 'info-lines',
   templateUrl: 'info-lines.component.html'
 })
-export class InfoLinesComponent {
+export class InfoLinesComponent implements OnInit{
 
   constructor(public navCtrl: NavController, private infoLineService: InfoLineService,
     public loadingCtrl: LoadingController, public toastCtrl: ToastController,

@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { BusTrackerService } from './bus-tracker.service';
 import { xmlParser } from 'xml2js';
 import { IBusInfo, BusInfo } from './bus-info';
 import { ToastController, LoadingController, Loading, NavController, NavParams } from 'ionic-angular';
 import { Utils } from '../../utils/utils';
 import { InfoLinesComponent } from '../info-lines/info-lines.component';
+import { CommunicationService } from '../../app/communication.service';
+import { Storage } from '@ionic/storage';
 
 export class FormInput {
 
@@ -38,9 +40,11 @@ export class BusTrackerComponent implements OnInit {
 
   loader: Loading;
 
+
   constructor(private trackerService: BusTrackerService, public toastCtrl: ToastController,
     public loadingCtrl: LoadingController, public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams, public communicationService: CommunicationService,
+    private storage: Storage
   ) {
 
   }
@@ -48,13 +52,29 @@ export class BusTrackerComponent implements OnInit {
   ngOnInit() {
 
     if (this.navParams.get('stopNumber')) {
+
       this.stopNumber = this.navParams.get('stopNumber');
+      this.model.parada = this.stopNumber;
+      this.loadServerData(this.stopNumber);
+
+    } else {
+
+      this.storage.get('stopNumberInit').then((val) => {
+        console.log('Init stopNumber', val);
+
+        if (val != null && val != '') {
+          this.model.parada = val;
+        } else {
+          this.model.parada = this.stopNumber;
+        }
+
+        this.loadServerData(this.stopNumber);
+
+      });
+
     }
 
-    this.model.parada = this.stopNumber;
     this.model.hourRef = new Date();
-
-    this.loadServerData(this.stopNumber);
 
   }
 
@@ -83,6 +103,10 @@ export class BusTrackerComponent implements OnInit {
     }
 
     this.model.hourRef = new Date();
+
+    this.communicationService.changeStopNumber(this.stopNumber);
+
+    this.storage.set('stopNumberInit', this.stopNumber);
 
     this.loader.dismissAll();
 

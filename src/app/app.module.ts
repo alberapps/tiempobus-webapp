@@ -1,22 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { BusTrackerComponent } from '../pages/bus-tracker/bus-tracker.component';
 import { BusTrackerService } from '../pages/bus-tracker/bus-tracker.service';
 import { InfoLinesComponent } from '../pages/info-lines/info-lines.component';
 import { InfoLineService } from '../pages/info-lines/info-line.service';
+import { FavoritesNewComponent } from '../pages/favorites/favorites-new.component';
+import { FavoritesListComponent } from '../pages/favorites/favorites-list.component';
+import { CommunicationService } from './communication.service';
+import { FavoritesDbService } from '../pages/favorites/favorites-db.service';
 
-
-
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,12 +27,15 @@ import { HttpClientModule } from '@angular/common/http';
     HomePage,
     ListPage,
     BusTrackerComponent,
-    InfoLinesComponent
+    InfoLinesComponent,
+    FavoritesNewComponent,
+    FavoritesListComponent
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,14 +43,18 @@ import { HttpClientModule } from '@angular/common/http';
     HomePage,
     ListPage,
     BusTrackerComponent,
-    InfoLinesComponent
+    InfoLinesComponent,
+    FavoritesNewComponent,
+    FavoritesListComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     BusTrackerService,
-    InfoLineService
+    InfoLineService,
+    CommunicationService,
+    FavoritesDbService
   ]
 })
-export class AppModule {}
+export class AppModule { }

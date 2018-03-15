@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar no-border-bottom color="primary">
+    <ion-title>Guardar parada {{stopNumber}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="background-color">
+
+  <form #saveDataForm="ngForm" (ngSubmit)="saveDataForm.valid && onSubmit()">
+    <ion-card>
+
+      <ion-card-content>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col col-12>
+              <ion-list>
+                <ion-item>
+                  <ion-label stacked>Título</ion-label>
+                  <ion-input type="text" [(ngModel)]="model.title" #title="ngModel" value="" name="title" required></ion-input>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-12>
+              <ion-list>
+                <ion-item>
+                  <ion-label stacked>Descripción</ion-label>
+                  <ion-textarea type="text" [(ngModel)]="model.description" #description="ngModel" value="" name="description"></ion-textarea>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-12 text-center>
+              <div padding>
+                <button ion-button type="submit">Guardar</button>
+              </div>
+            </ion-col>
+          </ion-row>
+
+
+        </ion-grid>
+
+
+      </ion-card-content>
+
+    </ion-card>
+  </form>
+
+
+</ion-content>

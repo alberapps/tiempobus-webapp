@@ -6,7 +6,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
-import {BusTrackerComponent} from '../pages/bus-tracker/bus-tracker.component'
+import { BusTrackerComponent } from '../pages/bus-tracker/bus-tracker.component';
+import { FavoritesNewComponent } from '../pages/favorites/favorites-new.component';
+import { FavoritesListComponent } from '../pages/favorites/favorites-list.component';
+import { CommunicationService } from './communication.service';
+import { FavoritesDbService } from '../pages/favorites/favorites-db.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,18 +20,33 @@ export class MyApp {
 
   rootPage: any = BusTrackerComponent;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any, isRoot: boolean }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  stopNumber: string;
+
+  //@ViewChild(BusTrackerComponent)
+  //private busTrackerComponent: BusTrackerComponent;
+
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+   public communicationService: CommunicationService, public favoritesDbService: FavoritesDbService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Bus Tracker', component: BusTrackerComponent },
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Bus Tracker', component: BusTrackerComponent, isRoot: true },
+      { title: 'Favoritos', component: FavoritesListComponent, isRoot: false },
+      { title: 'Guardar', component: FavoritesNewComponent, isRoot: false },
+      { title: 'Home', component: HomePage, isRoot: true },
+      { title: 'List', component: ListPage, isRoot: true }
 
     ];
+
+    communicationService.stopNumberSource$.subscribe(
+      stopNumber => {
+        this.stopNumber = stopNumber;
+        console.info('parda: ', stopNumber);
+      }
+    )
 
   }
 
@@ -41,8 +60,16 @@ export class MyApp {
   }
 
   openPage(page) {
+
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    if (page.isRoot) {
+      this.nav.setRoot(page.component);
+    } else {
+      this.nav.push(page.component, {
+          stopNumber: this.stopNumber
+      });
+    }
   }
+
 }
