@@ -4,6 +4,7 @@ import { FavoritesDbService } from './favorites-db.service';
 import { Favorite, IFavorite } from './favorite';
 import { BusTrackerComponent } from '../bus-tracker/bus-tracker.component';
 import { Utils } from '../../utils/utils';
+import { TranslateService } from '@ngx-translate/core';
 //import { Storage } from '@ionic/storage';
 
 
@@ -19,10 +20,14 @@ export class FavoritesListComponent implements OnInit {
 
   favoritesList: Array<IFavorite>;
 
+  alertTitle: string;
+  alertDesc: string;
+
   //, private storage: Storage
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public favoritesDbService: FavoritesDbService, public alertCtrl: AlertController) {
+    public favoritesDbService: FavoritesDbService, public alertCtrl: AlertController,
+    translate: TranslateService) {
 
     favoritesDbService.favoritesListSource$.subscribe(
       favoritesListSource => {
@@ -30,6 +35,14 @@ export class FavoritesListComponent implements OnInit {
         console.info('favorite list: ', favoritesListSource);
       }
     )
+
+    translate.get('BORRADO_TITULO').subscribe(
+      value => {
+        // value is our translated string
+        this.alertTitle = value;
+      }
+    )
+
 
   }
 
@@ -39,7 +52,7 @@ export class FavoritesListComponent implements OnInit {
       this.stopNumber = this.navParams.get('stopNumber');
     }
 
-    this.favoritesDbService.cargarFavoritos(null);
+    this.favoritesDbService.getFavorites(null);
 
 
   }
@@ -61,7 +74,7 @@ export class FavoritesListComponent implements OnInit {
 
     let slf = this;
 
-    Utils.showConfirm(this.alertCtrl, 'Confirmar borrado', '¿Seguro que quieres borrar?', function() {
+    Utils.showConfirm(this.alertCtrl, this.alertTitle, '¿Seguro que quieres borrar?', function() {
       slf.favoritesDbService.deleteFavorite(stopNumberParam)
     });
 

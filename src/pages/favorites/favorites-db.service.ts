@@ -17,24 +17,12 @@ export class FavoritesDbService {
 
   public db: IDBDatabase;
 
-  /*dbSource = new Subject<IDBDatabase>();
-
-  dbSource$ = this.dbSource.asObservable();
-
-  // Service message commands
-  changeDb(dbParam: IDBDatabase) {
-    this.dbSource.next(dbParam);
-  }*/
-
   favoritesListSource = new Subject<Array<IFavorite>>();
   favoritesListSource$ = this.favoritesListSource.asObservable();
 
   changeFavoritesList(favoritesListParam: Array<IFavorite>) {
     this.favoritesListSource.next(favoritesListParam);
   }
-
-  // Abrir base de datos
-  //openDb();
 
 
   constructor(public toastCtrl: ToastController) {
@@ -48,7 +36,7 @@ export class FavoritesDbService {
    *
    */
   openDb() {
-    console.log("openDb ...");
+    console.info("openDb ...");
 
     if (!window.indexedDB) {
       Utils.showToast('Error: Función no disponible en tu navegador', this.toastCtrl);
@@ -66,15 +54,9 @@ export class FavoritesDbService {
     req.onsuccess = function(evt) {
       // Better use "this" than "req" to get the result to avoid problems with
       // garbage collection.
-      // db = req.result;
       slf.db = this.result;
 
-      //slf.cargarFavoritos(null);
-
-      //slf.changeDb(slf.db);
-      //slf.saveDb(this.result);
-
-      console.log("openDb DONE: ", slf.db);
+      console.info("openDb DONE: ", slf.db);
     };
     req.onerror = function(evt) {
       console.error("openDb:", evt);
@@ -133,8 +115,8 @@ export class FavoritesDbService {
    * @param {IDBObjectStore=}
    *            store
    */
-  cargarFavoritos(store) {
-    console.log("cargar lista favoritos");
+  getFavorites(store) {
+    console.info("cargar lista favoritos");
 
     var slf = this;
 
@@ -151,19 +133,15 @@ export class FavoritesDbService {
     // Thus the count text below will be displayed before the actual pub list
     // (not that it is algorithmically important in this case).
     req.onsuccess = function(evt) {
-      // pub_msg.append('<p>There are <strong>' + evt.target.result +
-      // '</strong> record(s) in the object store.</p>');
-
       console.error("resultados: " + evt.target.result);
-
     };
     req.onerror = function(evt) {
       console.error("add error", this.error);
-      //utils.status.show(navigator.mozL10n.get('l10n_favorito_guardar_ko'));
+      Utils.showToast('Error en la carga de favoritos', slf.toastCtrl);
     };
 
     var i = 0;
-    let listaFavoritos = new Array<IFavorite>();
+    let favoritesList = new Array<IFavorite>();
     req = store.openCursor();
     req.onsuccess = function(evt) {
       var cursor = evt.target.result;
@@ -176,34 +154,24 @@ export class FavoritesDbService {
 
           var value = evt.target.result;
 
+          let favorite1: IFavorite = new Favorite();
 
+          favorite1.num = cursor.key;
+          favorite1.title = cursor.value.title;
+          favorite1.description = cursor.value.description;
 
+          favoritesList.push(favorite1);
 
-          var parada = cursor.key;
-          var titulo = cursor.value.title;
-          var descripcion = cursor.value.description;
-
-          let favorito1: IFavorite = new Favorite();
-
-          favorito1.num = parada;
-          favorito1.title = titulo;
-          favorito1.description = descripcion;
-
-          listaFavoritos.push(favorito1);
-
-          console.info("dato: " + cursor.key + " es " + cursor.value.titulo);
+          console.info("dato: " + cursor.key + " es " + cursor.value.title);
 
         };
-
 
         cursor.continue();
       }
       else {
-        console.debug("fin entradas");
+        console.info("fin entradas");
 
-        // Cargar listado en pantalla
-        //mostrarListaFavoritos(listaFavoritos);
-        slf.changeFavoritesList(listaFavoritos);
+        slf.changeFavoritesList(favoritesList);
 
       }
     };
@@ -223,21 +191,11 @@ export class FavoritesDbService {
  * @param {Blob=}
  *            blob
  */
-  addFavorito(newParada, newTitulo: string, newDescripcion: string, modifyId: string, callback: () => any) {
-
-    // Si es una modificacion
-    /*if (favoritoSeleccionadoModificar != '') {
-
-      eliminarFavorito(favoritoSeleccionadoModificar);
-
-      newParada = favoritoSeleccionadoModificar;
-      favoritoSeleccionadoModificar = '';
-
-    }*/
+  newFavorite(newNum: string, newTitle: string, newDescription: string, modifyId: string, callback: () => any) {
 
     var slf = this;
 
-    var obj = { num: newParada, title: newTitulo, description: newDescripcion };
+    var obj = { num: newNum, title: newTitle, description: newDescription };
 
     var store = this.getObjectStore(FavoritesDbService.DB_STORE_NAME, 'readwrite');
     var req;
@@ -266,7 +224,6 @@ export class FavoritesDbService {
  */
   deleteFavorite(stopNumber) {
 
-
     var slf = this;
 
     var request = this.db.transaction(["favorites"], "readwrite")
@@ -276,7 +233,7 @@ export class FavoritesDbService {
 
     request.onsuccess = function(event) {
 
-      slf.cargarFavoritos(null);
+      slf.getFavorites(null);
 
       Utils.showToast('Favorito borrado', slf.toastCtrl);
 

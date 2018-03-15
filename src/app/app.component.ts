@@ -12,6 +12,8 @@ import { FavoritesListComponent } from '../pages/favorites/favorites-list.compon
 import { CommunicationService } from './communication.service';
 import { FavoritesDbService } from '../pages/favorites/favorites-db.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -28,8 +30,15 @@ export class MyApp {
   //private busTrackerComponent: BusTrackerComponent;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
-   public communicationService: CommunicationService, public favoritesDbService: FavoritesDbService) {
+    public communicationService: CommunicationService, public favoritesDbService: FavoritesDbService,
+    translate: TranslateService) {
+
     this.initializeApp();
+
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('es');
+
+    translate.use('es');
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -44,7 +53,7 @@ export class MyApp {
     communicationService.stopNumberSource$.subscribe(
       stopNumber => {
         this.stopNumber = stopNumber;
-        console.info('parda: ', stopNumber);
+        console.info('stopNumber: ', stopNumber);
       }
     )
 
@@ -67,7 +76,7 @@ export class MyApp {
       this.nav.setRoot(page.component);
     } else {
       this.nav.push(page.component, {
-          stopNumber: this.stopNumber
+        stopNumber: this.stopNumber
       });
     }
   }

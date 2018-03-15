@@ -64,11 +64,11 @@ export class FavoritesNewComponent implements OnInit {
 
     var slf = this;
 
-    this.favoritesDbService.addFavorito(this.stopNumber, this.model.title, this.model.description, '', function() {
+    this.favoritesDbService.newFavorite(this.stopNumber, this.model.title, this.model.description, '', function() {
       slf.navCtrl.setRoot(BusTrackerComponent);
     });
 
-    //this.favoritesDbService.cargarFavoritos(null);
+    //this.favoritesDbService.getFavorites(null);
 
 
   }
