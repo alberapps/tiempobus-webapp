@@ -7,6 +7,7 @@ import { Utils } from '../../utils/utils';
 import { InfoLinesComponent } from '../info-lines/info-lines.component';
 import { CommunicationService } from '../../app/communication.service';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
 
 export class FormInput {
 
@@ -40,12 +41,22 @@ export class BusTrackerComponent implements OnInit {
 
   loader: Loading;
 
+  private errorText = '';
+
 
   constructor(private trackerService: BusTrackerService, public toastCtrl: ToastController,
     public loadingCtrl: LoadingController, public navCtrl: NavController,
     public navParams: NavParams, public communicationService: CommunicationService,
-    private storage: Storage
+    private storage: Storage, translate: TranslateService
   ) {
+
+    translate.get('error_generico_1').subscribe(
+      value => {
+        // value is our translated string
+        this.errorText = value;
+      }
+    )
+
 
   }
 
@@ -86,7 +97,7 @@ export class BusTrackerComponent implements OnInit {
       this.stopNumber = this.model.parada;
       this.loadServerData(this.model.parada);
     } else {
-      Utils.showToast('Error', this.toastCtrl);
+      Utils.showToast(this.errorText, this.toastCtrl);
     }
 
   }
@@ -99,7 +110,7 @@ export class BusTrackerComponent implements OnInit {
       this.timeItems = busInfoList;
     } else {
       this.timeItems = [];
-      Utils.showToast('Error', this.toastCtrl);
+      Utils.showToast(this.errorText, this.toastCtrl);
     }
 
     this.model.hourRef = new Date();
@@ -123,7 +134,6 @@ export class BusTrackerComponent implements OnInit {
     this.trackerService.getServerData(stopNumber)
       .subscribe(results => {
         this.parseXmlData(results);
-        //console.log('test1: ', this.contents );
       },
         error => {
 

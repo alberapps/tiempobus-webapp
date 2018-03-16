@@ -4,7 +4,7 @@ import { FavoritesDbService } from './favorites-db.service';
 import { Favorite, IFavorite } from './favorite';
 import { BusTrackerComponent } from '../bus-tracker/bus-tracker.component';
 import { Utils } from '../../utils/utils';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 //import { Storage } from '@ionic/storage';
 
 
@@ -27,7 +27,7 @@ export class FavoritesListComponent implements OnInit {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public favoritesDbService: FavoritesDbService, public alertCtrl: AlertController,
-    translate: TranslateService) {
+    public translate: TranslateService) {
 
     favoritesDbService.favoritesListSource$.subscribe(
       favoritesListSource => {
@@ -36,12 +36,12 @@ export class FavoritesListComponent implements OnInit {
       }
     )
 
-    translate.get('BORRADO_TITULO').subscribe(
+    /*translate.get('mensaje_borrar_pregunta').subscribe(
       value => {
         // value is our translated string
         this.alertTitle = value;
       }
-    )
+    )*/
 
 
   }
@@ -74,7 +74,7 @@ export class FavoritesListComponent implements OnInit {
 
     let slf = this;
 
-    Utils.showConfirm(this.alertCtrl, this.alertTitle, '¿Seguro que quieres borrar?', function() {
+    Utils.showConfirm(this.alertCtrl, this.translate.instant('mensaje_borrar_pregunta'), '', function() {
       slf.favoritesDbService.deleteFavorite(stopNumberParam)
     });
 

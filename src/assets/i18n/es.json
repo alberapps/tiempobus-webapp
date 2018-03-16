@@ -1,4 +1,17 @@
 {
   "DATOS": "Datos traducido",
-  "BORRADO_TITULO": "Confirmar el borrado"
+  "BORRADO_TITULO": "Confirmar el borrado",
+
+  "app_name": "TiempoBusWebApp",
+  "literal_min": "min",
+  "main_no_items": "Sin información",
+  "error_tiempos": "No se han podido recuperar los datos. Intentalo en unos minutos.",
+  "acercade_info_nuevo": "Esta aplicación NO es oficial y se desarrolla de forma independiente. Datos de líneas y tiempos ofrecidos y mantenidos por:",
+  "error_generico_1": "En este momento no se puede mostrar la información",
+  "menu_favoritos": "Favoritos",
+  "mensaje_borrar_pregunta": "¿Borrar el dato?",
+  "tit_guardar": "Guardar parada",
+  "nuevo_titulo": "Título",
+  "nuevo_descripcion": "Descripción",
+  "nuevo_guardar": "Guardar"
 }

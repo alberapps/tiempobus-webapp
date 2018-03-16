@@ -16,6 +16,7 @@ export class InfoRoute implements IInfoRoute {
   backward: Array<IInfoNode> = new Array();
 
   static parseResult(err, result, callback: (infoRoute: IInfoRoute) => any) {
+
     if (err != null) {
       console.log('ERR', err);
       callback(null);

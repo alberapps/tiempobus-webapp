@@ -11,7 +11,7 @@ export class BusTrackerService {
 
   trackerUrl = 'assets/tiempos_mock.xml';
 
-  //trackerUrl = 'http://api.alberapps.com:8080/TiempoBusBackend/dinamica_pasoparada.jsp?parada=2503';
+  //trackerUrl = '/TiempoBusBackend/dinamica_pasoparada.jsp?parada=2503';
 
   constructor(private http: HttpClient) { }
 
@@ -48,34 +48,6 @@ export class BusTrackerService {
 
     );
   }
-
-
-
-
-  //private mapData(result: Object){
-
-  //var busInfo: BusInfo;
-
-  //var soapBody = result.length;
-
-  //console.log('soapbody: ', soapBody );
-
-  //}
-
-
-  /*getConfig(){
-    return this.http.get<BusInfo>(this.configUrl)
-    .pipe(
-        retry(3),
-        catchError(this.handleError)
-    );
-  }
-
-  getConfigResponse(): Observable<HttpResponse<BusInfo>> {
-    return this.http.get<BusInfo>(
-      this.configUrl, { observe: 'response' }
-    );
-  }*/
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

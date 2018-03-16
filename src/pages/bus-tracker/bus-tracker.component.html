@@ -8,196 +8,172 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>TiempoBusWebApp</ion-title>
+    <ion-title>{{'app_name' | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="background-color">
 
-
-  <ion-card>
-
-    <ion-card-content>
-      <form class="example-form" #dataForm="ngForm" (ngSubmit)="dataForm.valid && onSubmit()">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
 
 
+        <ion-card>
 
-        <ion-grid>
-          <ion-row>
-            <ion-col col-4 col-sm-2 col-xl-5>
-              <div text-right padding-vertical class="text-1">
-                <ion-icon name="time"></ion-icon>
-                <label>{{model.hourRef | date: 'HH:mm'}}</label>
-              </div>
-            </ion-col>
-            <ion-col col-3 col-sm-8 col-xl-2>
-              <ion-list>
-                <ion-item>
-                  <ion-input type="text" placeholder="Nº de parada" [(ngModel)]="model.parada" #parada="ngModel" value="" name="parada" pattern="[0-9]*" required></ion-input>
-                </ion-item>
-              </ion-list>
-            </ion-col>
-            <ion-col col-5 col-sm-2 col-xl-5>
-              <div padding-vertical>
-                <button ion-button clear icon-only type="submit">
+          <ion-card-content>
+            <form class="example-form" #dataForm="ngForm" (ngSubmit)="dataForm.valid && onSubmit()">
+
+
+
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-4 col-sm-2 col-xl-5>
+                    <div text-right padding-vertical class="text-1">
+                      <ion-icon name="time"></ion-icon>
+                      <label>{{model.hourRef | date: 'HH:mm'}}</label>
+                    </div>
+                  </ion-col>
+                  <ion-col col-3 col-sm-8 col-xl-2>
+                    <ion-list>
+                      <ion-item>
+                        <ion-input type="text" placeholder="Nº de parada" [(ngModel)]="model.parada" #parada="ngModel" value="" name="parada" pattern="[0-9]*" required></ion-input>
+                      </ion-item>
+                    </ion-list>
+                  </ion-col>
+                  <ion-col col-5 col-sm-2 col-xl-5>
+                    <div padding-vertical>
+                      <button ion-button clear icon-only type="submit">
                   <ion-icon name="refresh"></ion-icon>
                 </button>
-              </div>
-            </ion-col>
-          </ion-row>
+                    </div>
+                  </ion-col>
+                </ion-row>
 
-        </ion-grid>
-
-
-
-      </form>
-    </ion-card-content>
-
-  </ion-card>
+              </ion-grid>
 
 
-  <ion-card *ngFor="let time of timeItems">
 
-    <ion-card-content>
+            </form>
+          </ion-card-content>
 
-      <ion-grid>
-        <ion-row>
-          <ion-col col-3>
-            <div padding-vertical>
-              <ion-badge>
-                <div text-center class="text-xx-large" margin>
-                  {{time.linea}}
-                </div>
-              </ion-badge>
-            </div>
-          </ion-col>
+        </ion-card>
 
-          <ion-col col-9>
+
+        <ion-card *ngFor="let time of timeItems">
+
+          <ion-card-content>
 
             <ion-grid>
               <ion-row>
-                <ion-col col-12>
-                  <div>
-                    <ion-icon name="arrow-forward"></ion-icon>
-                    <label class="text-large-bold">{{time.ruta}}</label>
+                <ion-col col-3>
+                  <div padding-vertical>
+                    <ion-badge>
+                      <div text-center class="text-xx-large" margin>
+                        {{time.linea}}
+                      </div>
+                    </ion-badge>
                   </div>
                 </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col col-12>
-                  <div class="text-large-bold-blue">
-                    {{time.tiempo1}} min - {{time.getHourTime(1)}}
-                  </div>
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col col-12>
-                  {{time.tiempo2}} min - {{time.getHourTime(2)}}
+
+                <ion-col col-9>
+
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-12>
+                        <div>
+                          <ion-icon name="arrow-forward"></ion-icon>
+                          <label class="text-large-bold">{{time.ruta}}</label>
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col col-12>
+                        <div class="text-large-bold-blue">
+                          {{time.tiempo1}} {{'literal_min' | translate}} - {{time.getHourTime(1)}}
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col col-12>
+                        {{time.tiempo2}} {{'literal_min' | translate}} - {{time.getHourTime(2)}}
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+
                 </ion-col>
               </ion-row>
             </ion-grid>
 
-          </ion-col>
-        </ion-row>
-      </ion-grid>
 
+          </ion-card-content>
 
-    </ion-card-content>
+        </ion-card>
 
-  </ion-card>
+        <div *ngIf="!timeItems || timeItems.length == 0">
+          <ion-card>
 
-  <div *ngIf="!timeItems || timeItems.length == 0">
-    <ion-card>
+            <ion-card-header *ngIf="!serviceError">
+              {{'main_no_items' | translate}}
+            </ion-card-header>
 
-      <ion-card-header *ngIf="!serviceError">
-        No Information
-      </ion-card-header>
+            <ion-card-header *ngIf="serviceError">
+              {{'error_tiempos' | translate}}
+            </ion-card-header>
 
-      <ion-card-header *ngIf="serviceError">
-        Service Error
-      </ion-card-header>
+            <ion-card-content>
+              <!-- Add card content here! -->
+            </ion-card-content>
 
-      <ion-card-content>
-        <!-- Add card content here! -->
-      </ion-card-content>
-
-    </ion-card>
-  </div>
+          </ion-card>
+        </div>
 
 
 
 
 
-  <ion-card>
+        <ion-card>
 
-    <ion-card-header>
-      {{ 'DATOS' | translate }}
-    </ion-card-header>
+          <ion-card-header>
+            <ion-grid>
+              <ion-row>
+                <ion-col text-center class="text-large-bold-blue">
+                  <a href="https://twitter.com/alberapps" target="_blank">@alberapps</a>
+                </ion-col>
+                <ion-col text-center class="text-large-bold-blue">
+                  <a href="https://twitter.com/magnoling_" target="_blank">@magnoling_</a>
 
-    <ion-card-content>
-      <!-- Add card content here! -->
-    </ion-card-content>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col text-center class="text-large-bold-blue">
+                  <a href="https://alberapps.blogspot.com" target="_blank">alberapps.blogspot.com</a>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-header>
 
-  </ion-card>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  {{ 'acercade_info_nuevo' | translate }}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col text-center class="text-large-bold-blue">
+                  <a href="https://alicante.vectalia.es" target="_blank">alicante.vectalia.es</a>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </ion-card-content>
+
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 
 </ion-content>
-
-
-<!--
-
-<div class="demo-card-container">
-<mat-card >
-      <mat-card-content>
-        <form class="example-form" #dataForm="ngForm" (ngSubmit)="dataForm.valid && onSubmit()">
-          <button mat-icon-button><mat-icon>schedule</mat-icon></button>{{model.hourRef | date: 'HH:mm'}}&nbsp;
-          <mat-form-field class="example-50-width">
-            <input matInput placeholder="Nº de parada" value="" [(ngModel)]="model.parada" type="text" name="parada" pattern="\d*" required>
-          </mat-form-field>
-          <button mat-icon-button type="submit"><mat-icon>refresh</mat-icon></button>
-        </form>
-      </mat-card-content>
-
-</mat-card>
-
-</div>
-
-
-<div class="demo-card-container" *ngFor="let time of timeItems">
-
-  <mat-card >
-
-
-        <mat-card-title-group>
-            <mat-card-title>{{time.linea}} - {{time.ruta}}</mat-card-title>
-            <mat-card-subtitle class="text-blue">{{time.tiempo1}} <span i18n="@@min">min</span> - {{time.getHourTime(1)}}</mat-card-subtitle>
-            <mat-card-subtitle>{{time.tiempo2}} <span i18n="@@min">min</span> - {{time.getHourTime(2)}}</mat-card-subtitle>
-
-        </mat-card-title-group>
-
-
-  </mat-card>
-
-</div>
-
-<div class="demo-card-container" *ngIf="!timeItems || timeItems.length == 0">
-
-  <mat-card >
-        <mat-card-title class="no-info" *ngIf="!serviceError"><span i18n="@@noinfo">No Information</span></mat-card-title>
-        <mat-card-title class="no-info" *ngIf="serviceError"><span i18n="@@error">Service Error</span></mat-card-title>
-  </mat-card>
-
-</div>
-
-
-<div class="demo-card-container">
-<mat-card >
-      <mat-card-content>
-        <p>Datos</p>
-      </mat-card-content>
-
-</mat-card>
-
-</div>
-
--->

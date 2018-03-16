@@ -27,20 +27,10 @@ export class FavoritesNewComponent implements OnInit {
 
   model = new FormInput('', '');
 
-  //favoritesList: Array<IFavorite>
-
-  //db
-
   //, private storage: Storage
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public favoritesDbService: FavoritesDbService) {
 
-    /*favoritesDbService.favoritesListSource$.subscribe(
-      favoritesListSource => {
-        this.stopNumber = stopNumber;
-        console.info('dbSource: ', stopNumber);
-      }
-    )*/
 
   }
 
@@ -49,12 +39,6 @@ export class FavoritesNewComponent implements OnInit {
     if (this.navParams.get('stopNumber')) {
       this.stopNumber = this.navParams.get('stopNumber');
     }
-
-    //this.favoritesDbService.openDb();
-
-
-
-    //console.info('database 2', this.favoritesDbService.db);
 
   }
 
@@ -68,7 +52,6 @@ export class FavoritesNewComponent implements OnInit {
       slf.navCtrl.setRoot(BusTrackerComponent);
     });
 
-    //this.favoritesDbService.getFavorites(null);
 
 
   }

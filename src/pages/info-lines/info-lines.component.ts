@@ -14,7 +14,7 @@ declare const require;
   selector: 'info-lines',
   templateUrl: 'info-lines.component.html'
 })
-export class InfoLinesComponent implements OnInit{
+export class InfoLinesComponent implements OnInit {
 
   constructor(public navCtrl: NavController, private infoLineService: InfoLineService,
     public loadingCtrl: LoadingController, public toastCtrl: ToastController,
@@ -25,6 +25,7 @@ export class InfoLinesComponent implements OnInit{
   tab: string = 'lines';
 
   lineList: Array<IInfoLine> = new Array();
+  //lineListInf: Array<IInfoLine> = new Array();
 
   serviceError = false;
 
@@ -54,6 +55,10 @@ export class InfoLinesComponent implements OnInit{
     });
 
     this.lineList = lineListAux;
+
+    /*for (let i = 0; i < 5; i++) {
+      this.lineListInf.push(this.lineList[i]);
+    }*/
 
   }
 
@@ -92,9 +97,6 @@ export class InfoLinesComponent implements OnInit{
     }
 
   }
-
-
-
 
   private loadLineServerData(lineNumber: string) {
 
@@ -138,6 +140,29 @@ export class InfoLinesComponent implements OnInit{
     });
 
   }
+
+  /*doInfiniteLines(infiniteScroll) {
+    console.log('Begin async operation');
+
+    var l = 0;
+    var max = 5;
+
+    if (this.lineListInf.length < this.lineList.length && this.lineListInf.length + max < this.lineList.length) {
+      l = this.lineListInf.length + max;
+    } else if (this.lineListInf.length < this.lineList.length && this.lineListInf.length + max > this.lineList.length) {
+      l = this.lineList.length;
+    }
+
+    setTimeout(() => {
+
+      for (let i = this.lineListInf.length; i < l; i++) {
+        this.lineListInf.push(this.lineList[i]);
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
+  }*/
 
 
 }

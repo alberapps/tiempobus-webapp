@@ -21,210 +21,180 @@
 
 <ion-content class="background-color">
 
-  <div [ngSwitch]="tab">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
 
-    <div *ngSwitchCase="'lines'">
 
-      <ion-card *ngFor="let line of lineList" (click)="loadRoute(line)">
+        <div [ngSwitch]="tab">
 
-        <ion-card-content>
+          <div *ngSwitchCase="'lines'">
 
-          <ion-grid>
-            <ion-row>
-              <ion-col col-3>
-                <div padding-vertical>
-                  <ion-badge>
-                    <div text-center class="text-xx-large" margin>
-                      {{line.num}}
-                    </div>
-                  </ion-badge>
+            <ion-list>
+              <ion-item *ngFor="let line of lineList" (click)="loadRoute(line)">
+                <ion-thumbnail item-start>
+                  <div padding-vertical>
+                    <ion-badge>
+                      <div text-center class="text-xx-large" margin>
+                        {{line.num}}
+                      </div>
+                    </ion-badge>
+                  </div>
+                </ion-thumbnail>
+                <div class="no-white-space">
+                  <h2>{{line.description}}</h2>
+                  <p></p>
                 </div>
-              </ion-col>
+                <button ion-button clear icon-only item-end>
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </button>
 
-              <ion-col col-9>
+              </ion-item>
+            </ion-list>
+
+            <!--ion-infinite-scroll (ionInfinite)="doInfiniteLines($event)">
+              <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll-->
+
+          </div>
+
+          <div *ngSwitchCase="'forward'">
+
+            <ion-card *ngIf="lineSelected.num != ''">
+
+              <ion-card-content>
 
                 <ion-grid>
                   <ion-row>
-                    <ion-col col-12>
-                      <div>
-                        <label class="text-large-bold">{{line.description}}</label>
+                    <ion-col col-3>
+                      <div padding-vertical>
+                        <ion-badge>
+                          <div text-center class="text-xx-large" margin>
+                            {{lineSelected.num}}
+                          </div>
+                        </ion-badge>
                       </div>
+                    </ion-col>
+
+                    <ion-col col-9>
+
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-12>
+                            <div>
+                              <label class="text-large-bold">{{lineSelected.description}}</label>
+                            </div>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                          <ion-col col-12>
+                            <div>
+                              <ion-icon name="arrow-forward"></ion-icon>
+                              <label>{{infoRouteData.nameForward}}</label>
+                            </div>
+                          </ion-col>
+                        </ion-row>
+                      </ion-grid>
+
                     </ion-col>
                   </ion-row>
                 </ion-grid>
 
-              </ion-col>
-            </ion-row>
-          </ion-grid>
+              </ion-card-content>
 
-        </ion-card-content>
+            </ion-card>
 
-      </ion-card>
-
-    </div>
-
-    <div *ngSwitchCase="'forward'">
-
-      <ion-card *ngIf="lineSelected.num != ''">
-
-        <ion-card-content>
-
-          <ion-grid>
-            <ion-row>
-              <ion-col col-3>
-                <div padding-vertical>
-                  <ion-badge>
-                    <div text-center class="text-xx-large" margin>
-                      {{lineSelected.num}}
-                    </div>
-                  </ion-badge>
+            <ion-list>
+              <ion-item *ngFor="let route of infoRouteData.forward" (click)="loadTracker(route.num)">
+                <ion-thumbnail item-start>
+                  <div padding-vertical>
+                    <label class="text-xxlarge-bold-blue">{{route.num}}</label>
+                  </div>
+                </ion-thumbnail>
+                <div class="no-white-space">
+                  <h2>{{route.name}}</h2>
+                  <p></p>
                 </div>
-              </ion-col>
+                <button ion-button clear icon-only item-end>
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </button>
 
-              <ion-col col-9>
+              </ion-item>
+            </ion-list>
+
+          </div>
+
+
+          <div *ngSwitchCase="'backward'">
+
+            <ion-card *ngIf="lineSelected.num != ''">
+
+              <ion-card-content>
 
                 <ion-grid>
                   <ion-row>
-                    <ion-col col-12>
-                      <div>
-                        <label class="text-large-bold">{{lineSelected.description}}</label>
+                    <ion-col col-3>
+                      <div padding-vertical>
+                        <ion-badge>
+                          <div text-center class="text-xx-large" margin>
+                            {{lineSelected.num}}
+                          </div>
+                        </ion-badge>
                       </div>
                     </ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col col-12>
-                      <div>
-                        <ion-icon name="arrow-forward"></ion-icon>
-                        <label>{{infoRouteData.nameForward}}</label>
-                      </div>
+
+                    <ion-col col-9>
+
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-12>
+                            <div>
+                              <label class="text-large-bold">{{lineSelected.description}}</label>
+                            </div>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                          <ion-col col-12>
+                            <div>
+                              <ion-icon name="arrow-forward"></ion-icon>
+                              <label>{{infoRouteData.nameBackward}}</label>
+                            </div>
+                          </ion-col>
+                        </ion-row>
+                      </ion-grid>
+
                     </ion-col>
                   </ion-row>
                 </ion-grid>
 
-              </ion-col>
-            </ion-row>
-          </ion-grid>
+              </ion-card-content>
 
-        </ion-card-content>
+            </ion-card>
 
-      </ion-card>
-
-
-      <ion-card *ngFor="let route of infoRouteData.forward" (click)="loadTracker(route.num)">
-
-        <ion-card-content>
-
-          <ion-grid>
-            <ion-row>
-              <ion-col col-3>
-                <div padding-vertical>
-                  <label class="text-xxlarge-bold-blue">{{route.num}}</label>
+            <ion-list>
+              <ion-item *ngFor="let route of infoRouteData.backward" (click)="loadTracker(route.num)">
+                <ion-thumbnail item-start>
+                  <div padding-vertical>
+                    <label class="text-xxlarge-bold-blue">{{route.num}}</label>
+                  </div>
+                </ion-thumbnail>
+                <div class="no-white-space">
+                  <h2>{{route.name}}</h2>
+                  <p></p>
                 </div>
-              </ion-col>
+                <button ion-button clear icon-only item-end>
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </button>
 
-              <ion-col col-9>
+              </ion-item>
+            </ion-list>
 
-                <ion-grid>
-                  <ion-row>
-                    <ion-col col-12>
-                      <div>
-                        <label class="text-large-bold">{{route.name}}</label>
-                      </div>
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
+          </div>
+        </div>
 
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-
-        </ion-card-content>
-
-      </ion-card>
-
-    </div>
-
-
-    <div *ngSwitchCase="'backward'">
-
-      <ion-card *ngIf="lineSelected.num != ''">
-
-        <ion-card-content>
-
-          <ion-grid>
-            <ion-row>
-              <ion-col col-3>
-                <div padding-vertical>
-                  <ion-badge>
-                    <div text-center class="text-xx-large" margin>
-                      {{lineSelected.num}}
-                    </div>
-                  </ion-badge>
-                </div>
-              </ion-col>
-
-              <ion-col col-9>
-
-                <ion-grid>
-                  <ion-row>
-                    <ion-col col-12>
-                      <div>
-                        <label class="text-large-bold">{{lineSelected.description}}</label>
-                      </div>
-                    </ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col col-12>
-                      <div>
-                        <ion-icon name="arrow-forward"></ion-icon>
-                        <label>{{infoRouteData.nameBackward}}</label>
-                      </div>
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-
-        </ion-card-content>
-
-      </ion-card>
-
-      <ion-card *ngFor="let route of infoRouteData.backward" (click)="loadTracker(route.num)">
-
-        <ion-card-content>
-
-          <ion-grid>
-            <ion-row>
-              <ion-col col-3>
-                <div padding-vertical>
-                  <label class="text-xxlarge-bold-blue">{{route.num}}</label>
-                </div>
-              </ion-col>
-
-              <ion-col col-9>
-
-                <ion-grid>
-                  <ion-row>
-                    <ion-col col-12>
-                      <div>
-                        <label class="text-large-bold">{{route.name}}</label>
-                      </div>
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-
-        </ion-card-content>
-
-      </ion-card>
-
-    </div>
-  </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 
 </ion-content>

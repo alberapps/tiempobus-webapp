@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar no-border-bottom color="primary">
-    <ion-title>Guardar parada {{stopNumber}}</ion-title>
+    <ion-title>{{'tit_guardar' | translate}} {{stopNumber}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,7 +17,7 @@
             <ion-col col-12>
               <ion-list>
                 <ion-item>
-                  <ion-label stacked>Título</ion-label>
+                  <ion-label stacked>{{'nuevo_titulo' | translate}}</ion-label>
                   <ion-input type="text" [(ngModel)]="model.title" #title="ngModel" value="" name="title" required></ion-input>
                 </ion-item>
               </ion-list>
@@ -28,7 +28,7 @@
             <ion-col col-12>
               <ion-list>
                 <ion-item>
-                  <ion-label stacked>Descripción</ion-label>
+                  <ion-label stacked>{{'nuevo_descripcion' | translate}}</ion-label>
                   <ion-textarea type="text" [(ngModel)]="model.description" #description="ngModel" value="" name="description"></ion-textarea>
                 </ion-item>
               </ion-list>
@@ -38,7 +38,7 @@
           <ion-row>
             <ion-col col-12 text-center>
               <div padding>
-                <button ion-button type="submit">Guardar</button>
+                <button ion-button type="submit">{{'nuevo_guardar' | translate}}</button>
               </div>
             </ion-col>
           </ion-row>
