@@ -1,3 +1,20 @@
+/**
+ * TiempoBus - Informacion sobre tiempos de paso de autobuses en Alicante
+ * Copyright (C) 2018 Alberto Montiel
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 import { Component, OnInit } from '@angular/core';
 import { ToastController, LoadingController, Loading, NavController, NavParams } from 'ionic-angular';
 import { IInfoLine, InfoLine } from './info-line';
@@ -7,6 +24,7 @@ import { InfoLineService } from './info-line.service';
 import { InfoNode, IInfoNode } from './info-node';
 import { Utils } from '../../utils/utils';
 import { BusTrackerComponent } from '../bus-tracker/bus-tracker.component';
+import { TranslateService } from '@ngx-translate/core';
 
 declare const require;
 
@@ -18,7 +36,7 @@ export class InfoLinesComponent implements OnInit {
 
   constructor(public navCtrl: NavController, private infoLineService: InfoLineService,
     public loadingCtrl: LoadingController, public toastCtrl: ToastController,
-    public navParams: NavParams) {
+    public navParams: NavParams, public translate: TranslateService) {
 
   }
 
@@ -100,7 +118,7 @@ export class InfoLinesComponent implements OnInit {
 
   private loadLineServerData(lineNumber: string) {
 
-    this.loader = Utils.presentLoading(this.loadingCtrl);
+    this.loader = Utils.presentLoading(this.loadingCtrl, this.translate);
 
     console.log('loadServerData');
 

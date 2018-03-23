@@ -15,15 +15,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-export interface IInfoNode {
-  num: String,
-  name: String,
-  coordinates: String
-}
+import { Component, OnInit } from '@angular/core';
+import { ToastController, LoadingController, Loading, NavController, NavParams, AlertController } from 'ionic-angular';
+import { BusTrackerComponent } from '../bus-tracker/bus-tracker.component';
+import { Utils } from '../../utils/utils';
+import { TranslateService } from '@ngx-translate/core';
 
-export class InfoNode implements IInfoNode {
-  num: String = '';
-  name: String = '';
-  coordinates: String = '';
+
+@Component({
+  selector: 'about',
+  templateUrl: 'about.component.html'
+})
+
+
+export class AboutComponent implements OnInit {
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
+    public translate: TranslateService) {
+
+  }
+
+  ngOnInit() {
+
+
+
+  }
 
 }

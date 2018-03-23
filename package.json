@@ -1,6 +1,6 @@
 {
-  "name": "TiempoBusWebAppI",
-  "version": "0.0.1",
+  "name": "TiempoBusWebApp",
+  "version": "0.1",
   "author": "Alberto Montiel",
   "homepage": "http://alberapps.com/",
   "private": true,
@@ -36,5 +36,5 @@
     "@ionic/app-scripts": "3.1.8",
     "typescript": "^2.7.2"
   },
-  "description": "TiempoBus Alicante Bus Tracker"
+  "description": "TiempoBus WebApp - Alicante Bus Tracker"
 }

@@ -2,7 +2,7 @@
   "DATOS": "Datos traducido",
   "BORRADO_TITULO": "Confirmar el borrado",
 
-  "app_name": "TiempoBusWebApp",
+  "app_name": "TiempoBus WebApp",
   "literal_min": "min",
   "main_no_items": "Sin información",
   "error_tiempos": "No se han podido recuperar los datos. Intentalo en unos minutos.",
@@ -13,5 +13,23 @@
   "tit_guardar": "Guardar parada",
   "nuevo_titulo": "Título",
   "nuevo_descripcion": "Descripción",
-  "nuevo_guardar": "Guardar"
+  "nuevo_guardar": "Guardar",
+  "aviso_recarga": "Recargando datos&#8230;",
+  "barcode_si": "Si",
+  "barcode_no": "No",
+  "info_borrar": "Favorito borrado",
+  "aviso_error_datos": "Error al obtener los datos",
+  "ok_nuevo_favorito": "Favorito guardado correctamente",
+  "preferences": "Preferencias",
+  "title_screen_preference": "Acerca de TiempoBus",
+  "summary_screen_preference": "Información sobre el autor y licencia",
+  "app_name_b": "TiempoBus WebApp",
+  "app_version": "0.1",
+  "app_licencia_desc": "Licencia GNU GPLv3",
+  "detalle_licencia": "TiempoBus - Informacion sobre tiempos de paso de autobuses en Alicante Copyright© 2012 Alberto Montiel This program is free software: you can redistribute it and / or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.If not, see http://www.gnu.org/licenses.",
+  "legal": "Tiempos obtenidos del sistema ISAE, que ofrece, en TIEMPO REAL, la ESTIMACIÓN de tiempos de paso de las redes TAM y TRAM. Estos tiempos pueden variar por razones ajenas a la aplicación, como el tráfico, cambios de recorrido, etc. Las funciones que usan la base de datos, pueden no disponer de los últimos cambios en los recorridos. Esta aplicación NO es oficial y se desarrolla de forma independiente. Datos de líneas y tiempos obtenidos de: TAM(www.subus.es, isaealicante.subus.es /movil/index.aspx) y TRAM(www.tramalicante.es, www.fgv.es) Más información: alberapps.blogspot.com y twitter.com/alberapps ",
+  "legal_b": "Los nombres de empresas y logotipos de estas o sus productos, así como los datos obtenidos de sus páginas web, son propiedad de sus respectivos titulares y son reconocidos por esta aplicación.",
+  "aviso_legal_analytics": "Aviso legal de Google Analytics. Esta aplicación utiliza Google Analytics, un servicio analítico de web prestado por Google, Inc., una compañía de Delaware cuya oficina principal esta en 1600 Amphitheatre Parkway, Mountain View (California), CA 94043, Estados Unidos (\"Google\"). La información que genera acerca de su uso de la aplicación (incluyendo su dirección IP) será directamente transmitida y archivada por Google en los servidores de Estados Unidos. Google usará esta información por cuenta nuestra con el propósito de seguir la pista de su uso de la aplicación, recopilando informes de la actividad de la aplicación y prestando otros servicios relacionados con la actividad de la aplicación y el uso de Internet. Google podrá transmitir dicha información a terceros cuando así se lo requiera la legislación, o cuando dichos terceros procesen la información por cuenta de Google. Google no asociará su dirección IP con ningún otro dato del que disponga Google. Puede Usted rechazar el tratamiento de los datos o la información rechazando el uso de esta función mediante la selección de la configuración apropiada en las preferencias de la aplicación, sin embargo, esto dificultará al desarrollador el estudio de nuevas funciones y el análisis de errores. Al utilizar esta aplicación Usted consiente el tratamiento de información acerca de Usted por Google en la forma y para los fines arriba indicados." 
+
+
 }

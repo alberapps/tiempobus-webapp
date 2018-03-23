@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar no-border-bottom color="primary">
+    <ion-title>{{'preferences' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="background-color">
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+
+        <ion-list [virtualScroll]="preferencesList" approxItemHeight="150px">
+          <ion-item *virtualItem="let item" (click)="goTo(item.goTo)">
+            <div class="no-white-space">
+              <h2>{{item.title}}</h2>
+              <p>{{item.description}}</p>
+            </div>
+
+          </ion-item>
+        </ion-list>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

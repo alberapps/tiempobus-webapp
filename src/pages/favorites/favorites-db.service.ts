@@ -1,8 +1,26 @@
+/**
+ * TiempoBus - Informacion sobre tiempos de paso de autobuses en Alicante
+ * Copyright (C) 2018 Alberto Montiel
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 import { Injectable } from '@angular/core';
 import { Favorite, IFavorite } from './favorite';
 import { Subject } from 'rxjs/Subject';
 import { ToastController } from 'ionic-angular';
 import { Utils } from '../../utils/utils';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class FavoritesDbService {
@@ -25,7 +43,7 @@ export class FavoritesDbService {
   }
 
 
-  constructor(public toastCtrl: ToastController) {
+  constructor(public toastCtrl: ToastController, public translate: TranslateService) {
 
     this.openDb();
 
@@ -137,7 +155,7 @@ export class FavoritesDbService {
     };
     req.onerror = function(evt) {
       console.error("add error", this.error);
-      Utils.showToast('Error en la carga de favoritos', slf.toastCtrl);
+      Utils.showToast(slf.translate.instant('aviso_error_datos'), slf.toastCtrl);
     };
 
     var i = 0;
@@ -208,14 +226,14 @@ export class FavoritesDbService {
     req.onsuccess = function(evt) {
       console.log("Insertion in DB successful");
 
-      Utils.showToast('Favorito guardado', slf.toastCtrl);
+      Utils.showToast(slf.translate.instant('ok_nuevo_favorito'), slf.toastCtrl);
 
       callback();
 
     };
     req.onerror = function(error) {
       console.error(error);
-      Utils.showToast('Error en el borrado', slf.toastCtrl);
+      Utils.showToast(slf.translate.instant('aviso_error_datos'), slf.toastCtrl);
     };
   }
 
@@ -235,12 +253,12 @@ export class FavoritesDbService {
 
       slf.getFavorites(null);
 
-      Utils.showToast('Favorito borrado', slf.toastCtrl);
+      Utils.showToast(slf.translate.instant('info_borrar'), slf.toastCtrl);
 
     };
 
     request.onerror = function() {
-      Utils.showToast('Error en el borrado', slf.toastCtrl);
+      Utils.showToast(slf.translate.instant('aviso_error_datos'), slf.toastCtrl);
     };
   }
 

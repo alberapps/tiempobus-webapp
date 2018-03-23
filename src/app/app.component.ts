@@ -1,14 +1,30 @@
+/**
+ * TiempoBus - Informacion sobre tiempos de paso de autobuses en Alicante
+ * Copyright (C) 2018 Alberto Montiel
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-
 import { BusTrackerComponent } from '../pages/bus-tracker/bus-tracker.component';
 import { FavoritesNewComponent } from '../pages/favorites/favorites-new.component';
 import { FavoritesListComponent } from '../pages/favorites/favorites-list.component';
+import { PreferencesComponent } from '../pages/preferences/preferences.component';
+
 import { CommunicationService } from './communication.service';
 import { FavoritesDbService } from '../pages/favorites/favorites-db.service';
 
@@ -22,7 +38,7 @@ export class MyApp {
 
   rootPage: any = BusTrackerComponent;
 
-  pages: Array<{ title: string, component: any, isRoot: boolean }>;
+  pages: Array<{ title: string, component: any, isRoot: boolean, ionicon: string }>;
 
   stopNumber: string;
 
@@ -42,11 +58,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Bus Tracker', component: BusTrackerComponent, isRoot: true },
-      { title: 'Favoritos', component: FavoritesListComponent, isRoot: false },
-      { title: 'Guardar', component: FavoritesNewComponent, isRoot: false },
-      { title: 'Home', component: HomePage, isRoot: true },
-      { title: 'List', component: ListPage, isRoot: true }
+      { title: 'menu_favoritos', component: FavoritesListComponent, isRoot: false, ionicon: 'bookmarks' },
+      { title: 'nuevo_guardar', component: FavoritesNewComponent, isRoot: false, ionicon: 'bookmark' },
+      { title: 'preferences', component: PreferencesComponent, isRoot: false, ionicon: 'settings' }
 
     ];
 

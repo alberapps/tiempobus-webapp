@@ -1,10 +1,10 @@
 {
-  "name": "TiempoBusWebApp",
+  "name": "TiempoBus WebApp",
   "short_name": "TiempoBusWebApp",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
-    "src": "assets/imgs/logo.png",
+    "src": "assets/imgs/ic_tiempobus_5_acercade.png",
     "sizes": "512x512",
     "type": "image/png"
   }],
