@@ -1,3 +1,22 @@
+<!--
+/**
+ * TiempoBus - Informacion sobre tiempos de paso de autobuses en Alicante
+ * Copyright (C) 2018 Alberto Montiel
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+-->
 <ion-header>
   <ion-navbar color="primary">
     <ion-buttons start>
@@ -28,24 +47,27 @@
 
               <ion-grid>
                 <ion-row>
-                  <ion-col col-4 col-sm-2 col-xl-5>
-                    <div text-right padding-vertical class="text-1">
-                      <ion-icon name="time"></ion-icon>
-                      <label>{{model.hourRef | date: 'HH:mm'}}</label>
+                  <ion-col col-sm-2 col-md-2 col-xl-5>
+                    <div padding-vertical text-right>
+                      <button ion-button clear icon-only type="button">
+                          <ion-icon name="time" item-start></ion-icon>
+                          {{model.hourRef | date: 'HH:mm'}}
+                      </button>
                     </div>
+
                   </ion-col>
-                  <ion-col col-3 col-sm-8 col-xl-2>
-                    <ion-list>
+                  <ion-col col-sm-8 col-md-8 col-xl-2>
+                    <ion-list padding-vertical>
                       <ion-item>
                         <ion-input type="text" placeholder="Nº de parada" [(ngModel)]="model.parada" #parada="ngModel" value="" name="parada" pattern="[0-9]*" required></ion-input>
                       </ion-item>
                     </ion-list>
                   </ion-col>
-                  <ion-col col-5 col-sm-2 col-xl-5>
+                  <ion-col col-sm-2 col-md-2 col-xl-5>
                     <div padding-vertical>
                       <button ion-button clear icon-only type="submit">
-                  <ion-icon name="refresh"></ion-icon>
-                </button>
+                          <ion-icon name="refresh"></ion-icon>
+                      </button>
                     </div>
                   </ion-col>
                 </ion-row>
@@ -66,9 +88,9 @@
 
             <ion-grid>
               <ion-row>
-                <ion-col col-3>
+                <ion-col col-sm-4 col-xl-1 col-4>
                   <div padding-vertical>
-                    <ion-badge>
+                    <ion-badge color="{{time.color}}">
                       <div text-center class="text-xx-large" margin>
                         {{time.linea}}
                       </div>
@@ -76,7 +98,7 @@
                   </div>
                 </ion-col>
 
-                <ion-col col-9>
+                <ion-col col-sm-8 col-xl-11 col-8>
 
                   <ion-grid>
                     <ion-row>
@@ -150,13 +172,21 @@
                   <a href="https://alberapps.blogspot.com" target="_blank">alberapps.blogspot.com</a>
                 </ion-col>
               </ion-row>
+              <ion-row>
+                <ion-col text-center class="text-large-bold-blue">
+                  <ion-icon name="appstore" item-start ios="md-appstore"></ion-icon>
+                  <a href="https://play.google.com/store/apps/details?id=alberapps.android.tiempobus" target="_blank">{{'app_android' | translate}}</a>
+                </ion-col>
+              </ion-row>
             </ion-grid>
+
+
           </ion-card-header>
 
           <ion-card-content>
             <ion-grid>
               <ion-row>
-                <ion-col>
+                <ion-col text-center>
                   {{ 'acercade_info_nuevo' | translate }}
                 </ion-col>
               </ion-row>
@@ -174,6 +204,14 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-fab right bottom>
+
+    <button ion-fab color="primary" (click)="goToFavorites()">
+    <ion-icon name="bookmark"></ion-icon>
+  </button>
+
+  </ion-fab>
 
 
 </ion-content>

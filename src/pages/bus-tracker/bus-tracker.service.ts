@@ -16,10 +16,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+//import { Observable } from 'rxjs/Observable';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
-import { catchError, retry, tap, map } from 'rxjs/operators';
+import { catchError, retry } from 'rxjs/operators';
 
 
 

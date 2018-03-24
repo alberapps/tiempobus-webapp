@@ -95,10 +95,10 @@ export class FavoritesDbService {
     };
   }
 
-  private saveDb(result) {
+  /*private saveDb(result) {
     console.info('saveDb: ', result);
     this.db = result;
-  }
+  }*/
 
   /**
   * @param {string}
@@ -158,7 +158,6 @@ export class FavoritesDbService {
       Utils.showToast(slf.translate.instant('aviso_error_datos'), slf.toastCtrl);
     };
 
-    var i = 0;
     let favoritesList = new Array<IFavorite>();
     req = store.openCursor();
     req.onsuccess = function(evt) {
@@ -169,8 +168,6 @@ export class FavoritesDbService {
         console.debug("displayPubList cursor:", cursor);
         req = store.get(cursor.key);
         req.onsuccess = function(evt) {
-
-          var value = evt.target.result;
 
           let favorite1: IFavorite = new Favorite();
 
@@ -233,7 +230,7 @@ export class FavoritesDbService {
     };
     req.onerror = function(error) {
       console.error(error);
-      Utils.showToast(slf.translate.instant('aviso_error_datos'), slf.toastCtrl);
+      Utils.showToast(slf.translate.instant('ko_nuevo_favorito'), slf.toastCtrl);
     };
   }
 

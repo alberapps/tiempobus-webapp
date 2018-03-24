@@ -21,7 +21,6 @@ import { IInfoLine, InfoLine } from './info-line';
 import { IInfoRoute, InfoRoute } from './info-routes';
 import { TamInfo } from '../../utils/tam-info';
 import { InfoLineService } from './info-line.service';
-import { InfoNode, IInfoNode } from './info-node';
 import { Utils } from '../../utils/utils';
 import { BusTrackerComponent } from '../bus-tracker/bus-tracker.component';
 import { TranslateService } from '@ngx-translate/core';
@@ -67,6 +66,7 @@ export class InfoLinesComponent implements OnInit {
       infoLine = new InfoLine();
       infoLine.num = line;
       infoLine.description = TamInfo.LINEAS_DESC[i];
+      infoLine.color =   TamInfo.getBusColor(line);
 
       lineListAux.push(infoLine);
 

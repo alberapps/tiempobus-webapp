@@ -16,9 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import { Component, OnInit } from '@angular/core';
-import { ToastController, LoadingController, Loading, NavController, NavParams, AlertController } from 'ionic-angular';
-import { BusTrackerComponent } from '../bus-tracker/bus-tracker.component';
-import { Utils } from '../../utils/utils';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
+//import { Utils } from '../../utils/utils';
 import { TranslateService } from '@ngx-translate/core';
 
 

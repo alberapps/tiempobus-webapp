@@ -17,11 +17,13 @@
  */
 export interface IInfoLine {
   num: string,
-  description: string
+  description: string,
+  color: string
 }
 
 export class InfoLine implements IInfoLine {
   num: string = '';
   description: string = '';
+  color: string = '';
 
 }

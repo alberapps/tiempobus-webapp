@@ -15,13 +15,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BusTrackerService } from './bus-tracker.service';
-import { xmlParser } from 'xml2js';
+//import { xmlParser } from 'xml2js';
 import { IBusInfo, BusInfo } from './bus-info';
 import { ToastController, LoadingController, Loading, NavController, NavParams } from 'ionic-angular';
 import { Utils } from '../../utils/utils';
 import { InfoLinesComponent } from '../info-lines/info-lines.component';
+import { FavoritesListComponent } from '../favorites/favorites-list.component';
 import { CommunicationService } from '../../app/communication.service';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
@@ -187,6 +188,12 @@ export class BusTrackerComponent implements OnInit {
     //push another page onto the history stack
     //causing the nav controller to animate the new page in
     this.navCtrl.push(InfoLinesComponent);
+  }
+
+  goToFavorites() {
+    //push another page onto the history stack
+    //causing the nav controller to animate the new page in
+    this.navCtrl.push(FavoritesListComponent);
   }
 
 

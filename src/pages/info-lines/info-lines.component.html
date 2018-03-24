@@ -1,18 +1,37 @@
+<!--
+/**
+ * TiempoBus - Informacion sobre tiempos de paso de autobuses en Alicante
+ * Copyright (C) 2018 Alberto Montiel
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+-->
 <ion-header>
   <ion-navbar no-border-bottom color="primary">
-    <ion-title>Buscador</ion-title>
+    <ion-title>{{'buscador_online' | translate}}</ion-title>
   </ion-navbar>
 
   <ion-toolbar no-border-top color="primary">
     <ion-segment [(ngModel)]="tab" color="light">
       <ion-segment-button value="lines">
-        Lineas
+        {{'linea' | translate}}
       </ion-segment-button>
       <ion-segment-button value="forward">
-        Ida
+        {{'ida' | translate}}
       </ion-segment-button>
       <ion-segment-button value="backward">
-        Vuelta
+        {{'vuelta' | translate}}
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -30,11 +49,27 @@
 
           <div *ngSwitchCase="'lines'">
 
+
             <ion-list>
+
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <div padding-vertical>
+                  </div>
+                </ion-thumbnail>
+                <div class="no-white-space">
+                  <h2></h2>
+                  <p>
+                    {{'aviso_buscador_online' | translate}}
+                  </p>
+                </div>
+              </ion-item>
+
+
               <ion-item *ngFor="let line of lineList" (click)="loadRoute(line)">
                 <ion-thumbnail item-start>
                   <div padding-vertical>
-                    <ion-badge>
+                    <ion-badge color="{{line.color}}">
                       <div text-center class="text-xx-large" margin>
                         {{line.num}}
                       </div>
@@ -60,51 +95,28 @@
 
           <div *ngSwitchCase="'forward'">
 
-            <ion-card *ngIf="lineSelected.num != ''">
+            <ion-list *ngIf="lineSelected.num != ''">
 
-              <ion-card-content>
-
-                <ion-grid>
-                  <ion-row>
-                    <ion-col col-3>
-                      <div padding-vertical>
-                        <ion-badge>
-                          <div text-center class="text-xx-large" margin>
-                            {{lineSelected.num}}
-                          </div>
-                        </ion-badge>
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <div padding-vertical>
+                    <ion-badge color="{{lineSelected.color}}">
+                      <div text-center class="text-xx-large" margin>
+                        {{lineSelected.num}}
                       </div>
-                    </ion-col>
+                    </ion-badge>
+                  </div>
+                </ion-thumbnail>
+                <div class="no-white-space">
+                  <h2><label class="text-large-bold">{{lineSelected.description}}</label></h2>
+                  <p>
+                    <ion-icon name="arrow-forward" item-start></ion-icon>
+                    <label>{{infoRouteData.nameForward}}</label>
+                  </p>
+                </div>
+              </ion-item>
 
-                    <ion-col col-9>
 
-                      <ion-grid>
-                        <ion-row>
-                          <ion-col col-12>
-                            <div>
-                              <label class="text-large-bold">{{lineSelected.description}}</label>
-                            </div>
-                          </ion-col>
-                        </ion-row>
-                        <ion-row>
-                          <ion-col col-12>
-                            <div>
-                              <ion-icon name="arrow-forward"></ion-icon>
-                              <label>{{infoRouteData.nameForward}}</label>
-                            </div>
-                          </ion-col>
-                        </ion-row>
-                      </ion-grid>
-
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-
-              </ion-card-content>
-
-            </ion-card>
-
-            <ion-list>
               <ion-item *ngFor="let route of infoRouteData.forward" (click)="loadTracker(route.num)">
                 <ion-thumbnail item-start>
                   <div padding-vertical>
@@ -127,51 +139,28 @@
 
           <div *ngSwitchCase="'backward'">
 
-            <ion-card *ngIf="lineSelected.num != ''">
+            <ion-list *ngIf="lineSelected.num != ''">
 
-              <ion-card-content>
-
-                <ion-grid>
-                  <ion-row>
-                    <ion-col col-3>
-                      <div padding-vertical>
-                        <ion-badge>
-                          <div text-center class="text-xx-large" margin>
-                            {{lineSelected.num}}
-                          </div>
-                        </ion-badge>
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <div padding-vertical>
+                    <ion-badge color="{{lineSelected.color}}">
+                      <div text-center class="text-xx-large" margin>
+                        {{lineSelected.num}}
                       </div>
-                    </ion-col>
+                    </ion-badge>
+                  </div>
+                </ion-thumbnail>
+                <div class="no-white-space">
+                  <h2><label class="text-large-bold">{{lineSelected.description}}</label></h2>
+                  <p>
+                    <ion-icon name="arrow-forward" item-start></ion-icon>
+                    <label>{{infoRouteData.nameBackward}}</label>
+                  </p>
+                </div>
+              </ion-item>
 
-                    <ion-col col-9>
 
-                      <ion-grid>
-                        <ion-row>
-                          <ion-col col-12>
-                            <div>
-                              <label class="text-large-bold">{{lineSelected.description}}</label>
-                            </div>
-                          </ion-col>
-                        </ion-row>
-                        <ion-row>
-                          <ion-col col-12>
-                            <div>
-                              <ion-icon name="arrow-forward"></ion-icon>
-                              <label>{{infoRouteData.nameBackward}}</label>
-                            </div>
-                          </ion-col>
-                        </ion-row>
-                      </ion-grid>
-
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-
-              </ion-card-content>
-
-            </ion-card>
-
-            <ion-list>
               <ion-item *ngFor="let route of infoRouteData.backward" (click)="loadTracker(route.num)">
                 <ion-thumbnail item-start>
                   <div padding-vertical>

@@ -15,21 +15,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
+import { TamInfo } from '../../utils/tam-info';
+
 export interface IBusInfo {
-  linea: String,
-  parada: String,
-  ruta: String,
-  tiempo1: String,
-  tiempo2: String
+  linea: string,
+  parada: string,
+  ruta: string,
+  tiempo1: string,
+  tiempo2: string,
+  color: string
 }
 
 export class BusInfo implements IBusInfo {
-  linea: String = '';
-  parada: String = '';
-  ruta: String = '';
+  linea: string = '';
+  parada: string = '';
+  ruta: string = '';
   tiempo1: string = '';
   tiempo2: string = '';
+  color: string = 'bus-blue'
 
 
   public getHourTime(timeParam) {
@@ -79,6 +82,8 @@ export class BusInfo implements IBusInfo {
       busInfo.ruta = item['ruta'][0];
       busInfo.tiempo1 = item['e1'][0]['minutos'][0];
       busInfo.tiempo2 = item['e2'][0]['minutos'][0];
+
+      busInfo.color = TamInfo.getBusColor(busInfo.linea);
 
       busInfoList.push(busInfo);
 
